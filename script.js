@@ -1,6 +1,7 @@
 console.log('js sourced');
 
 var garage=[];
+var archive=[];
 
 var addCar = function(){
   console.log('in addCar');
@@ -55,7 +56,15 @@ var displayCars = function() {
 var takeOut = function(index){
   console.log("in takeOut");
   console.log("Taking out the " + garage[index].year +  " " + garage[index].model + ".");
+  //save archived car
+var archivedCar = garage[index]
+//remove archived car
 garage.splice(index, 1);
+
+console.log(archivedCar);
+//add archived car to new array of archived cars
+archive.push(archivedCar);
+console.log(archive);
 
 displayCars();
 
