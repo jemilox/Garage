@@ -15,4 +15,6 @@ List:
 *0.3 - create car object from user input
 *0.4 - push car object into "garage" array
 *0.5 - list cars on the DOM
-*0.6 - display cars on the DOM 
+*0.6 - display cars on the DOM
+*0.7 - clear inputs
+*0.8 - check for empties
