@@ -43,10 +43,20 @@ var displayCars = function() {
   document.getElementById('allCars').innerHTML='';
   //for each car add a listing, year, make, and model
   for (var i = 0; i < garage.length; i++) {
-    var carInfo = '<h2>' + garage[i].year + ' ' + garage[i].make + ' ' + garage[i].model + '<h2>' + ' ' + '<img src="' + garage[i].picURL +'">' + garage[i].picURL + ' ' + garage[i].description;
+    var carInfo = '<h2>' + garage[i].year + ' ' + garage[i].make + ' ' + garage[i].model + '<h2>'
+    + ' ' + '<img src="' + garage[i].picURL +'">' + garage[i].picURL + ' ' + garage[i].description + "<button onClick='takeOut(" + i + ")'>Remove</button>";
     //append carInfo to output div
 
 
     document.getElementById('allCars').innerHTML += carInfo;
   }
 };//end displayCars
+
+var takeOut = function(index){
+  console.log("in takeOut");
+  console.log("Taking out the " + garage[index].year +  " " + garage[index].model + ".");
+garage.splice(index, 1);
+
+displayCars();
+
+};
