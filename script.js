@@ -44,7 +44,7 @@ var displayCars = function() {
   document.getElementById('allCars').innerHTML='';
   //for each car add a listing, year, make, and model
   for (var i = 0; i < garage.length; i++) {
-    var carInfo = '<h2>' + garage[i].year + ' ' + garage[i].make + ' ' + garage[i].model + '<h2>'
+    var carInfo = '<h2>' + garage[i].year + ' ' + garage[i].make + ' ' + garage[i].model + '</h2>'
     + ' ' + '<img src="' + garage[i].picURL +'">' + garage[i].picURL + ' ' + garage[i].description + "<button onClick='takeOut(" + i + ")'>Remove</button>";
     //append carInfo to output div
 
@@ -67,5 +67,34 @@ archive.push(archivedCar);
 console.log(archive);
 
 displayCars();
+displayArchivedCars();
 
 };
+
+var displayArchivedCars = function(){
+  document.getElementById('archive').innerHTML='';
+  //for each car add a listing, year, make, and model
+  for (var i = 0; i < archive.length; i++) {
+    var archiveInfo = '<p>' + archive[i].year + ' ' + archive[i].make + ' ' + archive[i].model +
+    + ' ' + "<button onClick='addCarAgain(" + i + ")'>Add</button>";
+    //append carInfo to output div
+
+
+    document.getElementById('archive').innerHTML += archiveInfo;
+}
+};
+//add back to garage from archive
+var addCarAgain = function(index){
+  //save spliced car from archive
+  var readdCar = archive[index];
+  archive.splice(index, 1);
+
+  console.log(readdCar);
+  //add car back to garage car
+  garage.push(readdCar);
+  console.log(garage);
+
+displayCars();
+displayArchivedCars();
+
+}
